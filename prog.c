@@ -70,9 +70,8 @@ int main(void)
     if ( false == Seek_To_MyCode(out) ) abortwhy("Unable to find CPU instructions inside '" TMPLIB "'");
 
     static char unsigned const replacement[] = {
-        0xf3, 0x0f, 0x1e, 0xfa,          	                         // endbr64
         0x48, 0xb8, 0x88, 0x77, 0x66, 0x55, 0x44, 0x33, 0x22, 0x11,  // movabs rax, 0x1122334455667788
-        0xc3                   	                                     // ret
+        0xc3                                                         // ret
     };
 
     fwrite(replacement, 1u, sizeof replacement, out);
